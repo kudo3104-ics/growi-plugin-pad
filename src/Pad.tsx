@@ -5,7 +5,7 @@ import './Pad.css';
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
   return ({ children, className, ...props }) => {
     try {
-      if (className !== 'pad') {
+      if (className !== 'language-pad') {
         return (
           <Tag {...props}>{children} NOT pad, className={className}</Tag>
         );
