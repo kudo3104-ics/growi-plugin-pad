@@ -7,7 +7,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
     try {
       if (className !== 'pad') {
         return (
-          <Tag {...props}>{children} NOT pad</Tag>
+          <Tag {...props}>{children} NOT pad, className={className}</Tag>
         );
       }
       return (
