@@ -11,16 +11,12 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         );
       }
       return (
-        <ul>
-        <li>children:{children}</li>
-        <li>className:{className}</li>
-        <li>...props:{...props}</li>
-        </ul>
+        <Tag {...props}>{children} this is pad, className={className}</Tag>
       );
     }
     catch (err) {
       return (
-        <Tag {...props}>{children} err:{err}</Tag>
+        <Tag {...props}>{children} err</Tag>
       );
     }
   };
