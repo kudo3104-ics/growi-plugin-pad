@@ -5,23 +5,24 @@ import './Pad.css';
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
   return ({ children, className, ...props }) => {
     try {
+      if (className !== 'language-pad') {
+        return (
+          <Tag {...props}>{children}</Tag>
+        );
+      }
       return (
-        <>
-          <ul>
-          <li>children:{children}</li>
-          <li>className:{className}</li>
-          <li>...props:{...props}</li>
-          </ul>
-        </>
+        <ul>
+        <li>children:{children}</li>
+        <li>className:{className}</li>
+        <li>...props:{...props}</li>
+        </ul>
       );
     }
     catch (err) {
-      // console.error(err);
+      return (
+        <Tag {...props}>{children} err</Tag>
+      );
     }
-    // Return the original component if an error occurs
-    return (
-      <Tag {...props}>{children}</Tag>
-    );
   };
 };
 
