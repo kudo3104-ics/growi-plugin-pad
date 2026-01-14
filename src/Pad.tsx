@@ -7,7 +7,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
     try {
       if (className !== 'language-pad') {
         return (
-          <Tag {...props}>{children} NOT pad, className={className}, children={children}</Tag>
+          <Tag {...props}>{children} NOT pad, className={className}, children={children}, props={...props}</Tag>
         );
       }
       return (
