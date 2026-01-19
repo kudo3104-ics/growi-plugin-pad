@@ -13,10 +13,6 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         );
       }
 
-      return (
-        <p>children:{children}, className:{className}</p>
-      );
-
       const layoutName = 'コンパクト';
 
       fetch(API_URL, {
@@ -28,14 +24,20 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       })
       .then((response: Response) => {
           if (!response.ok) {
+              console.log('net work resonse was not ok');
               return 'net work resonse was not ok';
           }
+          console.log('response was ok');
           return response.text();
       })
       .then(svg => {
+          console.log('svg!');
+          console.log(svg);
           return (<p>this is svg.</p>);
       })
       .catch((error: Error) => {
+          console.log('error');
+          console.log(error);
           return 'error: ' + error;
       });
     }
