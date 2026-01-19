@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Pad.css';
 
-const API_URL: string = 'http://evm.ics.co.jp:8088/PadGen/api/pdl/form'
+const API_URL: string = 'http://10.20.40.64:8070/api/pdl/form'
 
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
   return ({ children, className, ...props }) => {
