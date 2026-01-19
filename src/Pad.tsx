@@ -27,13 +27,13 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
               console.log('net work resonse was not ok');
               return 'net work resonse was not ok';
           }
-          console.log('response was ok');
+          // console.log('response was ok');
           return response.text();
       })
       .then(svg => {
           console.log('svg!');
-          console.log(svg);
-          return (<p>this is svg.</p>);
+          // console.log(svg);
+          return svg;
       })
       .catch((error: Error) => {
           console.log('error');
