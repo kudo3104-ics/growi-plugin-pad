@@ -13,6 +13,10 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         );
       }
 
+      return (
+        <p>children:{children}, className:{className}</p>
+      );
+
       const layoutName = 'コンパクト';
 
       fetch(API_URL, {
