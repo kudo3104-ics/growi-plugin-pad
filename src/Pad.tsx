@@ -28,8 +28,8 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
           }
           return response.text();
       })
-      .then((result: string) => {
-          return result;
+      .then(svg => {
+          return svg;
       })
       .catch((error: Error) => {
           return 'error: ' + error;
