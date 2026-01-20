@@ -52,7 +52,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       return <div>svg fetch now...</div>;
     }
 
-    return (svgContent);
+    return 'its svg!'; //(svgContent);
   };
 };
 
