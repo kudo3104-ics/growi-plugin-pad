@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Pad.css';
+// import './Pad.css';
 
 declare const growiFacade : {
   react: typeof React;
