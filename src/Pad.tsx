@@ -15,7 +15,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         );
       }
 
-      return <p >{children}</p>;
+      // return <p >{children}</p>;
 
       const layoutName = 'コンパクト';
 
@@ -38,6 +38,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       .then(svg => {
           console.log('svg!');
           // console.log(svg);
+          return <p>this is svg</p>;
           return svg;
       })
       .catch((error: Error) => {
