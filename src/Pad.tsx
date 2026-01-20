@@ -10,7 +10,9 @@ export const Pad = (Tag: React.FC<any>): React.FC<any> => {
     const [error, setError] = useState<string | null>(null);
   
     useEffect(() => {
+      console.log('className is {className}');
       if (className === 'language-pad') {
+        console.log('fetch');
         const layoutName = 'コンパクト';
         fetch(API_URL, {
           method: 'POST',
@@ -24,10 +26,11 @@ export const Pad = (Tag: React.FC<any>): React.FC<any> => {
               console.log('network resonse was not ok');
               throw new Error('network response was not ok');
           }
+          console.log('response is ok');
           return response.text();
         })
         .then((svg: string) => {
-          console.log('svg!');
+          console.log('its svg!');
           setSvgContent(svg);
         })
         .catch((error: Error) => {
@@ -39,9 +42,7 @@ export const Pad = (Tag: React.FC<any>): React.FC<any> => {
     }, [children, className]);
   
     if (className !== 'language-pad') {
-      return (
-        <Tag {...props}>{children}</Tag>
-      );
+      return <Tag {...props}>{children}</Tag>;
     }
   
     if (error) {
@@ -52,6 +53,7 @@ export const Pad = (Tag: React.FC<any>): React.FC<any> => {
       return <div>svg fetch now...</div>;
     }
   
-    return svgContent;
+    return 'this is svgContent';
+    // return svgContent;
   };
 };
