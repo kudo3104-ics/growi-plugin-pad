@@ -12,14 +12,10 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
   return ({ children, className, ...props }) => {
     try {
       if (className !== 'language-pad') {
-        // console.log('NOT pad');
-        // console.log(className);
         return (
-          <Tag {...props}>{className}:{children}</Tag>
+          <Tag {...props}>{children}</Tag>
         );
       }
-
-      // return <p >{children}</p>;
 
       const { react } = growiFacade;
       const { useEffect, useState } = react;
@@ -45,8 +41,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       }, [children]);
 
       return (
-        <div dangerouslySetInnerHTML={{ __html: svgContent }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: svgContent }} />
       );
 
     }
