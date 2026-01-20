@@ -2,6 +2,10 @@ import React from 'react';
 
 import './Pad.css';
 
+declare const growiFacade : {
+  react: typeof React;
+};
+
 const API_URL: string = 'http://10.20.40.64:8070/api/pdl/form'
 
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
@@ -17,35 +21,31 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
 
       // return <p >{children}</p>;
 
+      const { react } = growiFacade;
+      const { useEffect, useState } = react;
+
+      const [ svgContent, setSvgContent ] = useState<string | null>(null);
+
       const layoutName = 'コンパクト';
 
-      console.log('fatch');
-      fetch(API_URL, {
+      const getSvg = async(pdl: string) => {
+        const response = await fetch(API_URL, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json;charset=UTF-8'
           },
-          body: JSON.stringify({ LayoutName: layoutName, Text: children })
-      })
-      .then((response: Response) => {
-          if (!response.ok) {
-              console.log('net work resonse was not ok');
-              return 'net work resonse was not ok';
-          }
-          // console.log('response was ok');
-          return response.text();
-      })
-      .then(svg => {
-          console.log('svg!');
-          // console.log(svg);
-          return <p>this is svg</p>;
-          return svg;
-      })
-      .catch((error: Error) => {
-          console.log('error');
-          console.log(error);
-          return 'error: ' + error;
-      });
+          body: JSON.stringify({ LayoutName: layoutName, Text: pdl })
+        });
+        const svg = await response.text() as string;
+        setSvgContent(svg);
+      };
+
+      useEffect(() => {
+        if (children !== null) getSvg(children)
+      }, [children]);
+
+      return (svgContent);
+
     }
     catch (err) {
       return (
