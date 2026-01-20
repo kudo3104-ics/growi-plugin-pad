@@ -12,8 +12,8 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
   return ({ children, className, ...props }) => {
     try {
       if (className !== 'language-pad') {
-        console.log('NOT pad');
-        console.log(className);
+        // console.log('NOT pad');
+        // console.log(className);
         return (
           <Tag {...props}>{className}:{children}</Tag>
         );
@@ -44,7 +44,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         if (children !== null) getSvg(children)
       }, [children]);
 
-      return (svgContent);
+      return (<>{svgContent}</>);
 
     }
     catch (err) {
