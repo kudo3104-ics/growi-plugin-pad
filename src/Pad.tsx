@@ -15,7 +15,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         );
       }
 
-      return children;
+      return <p >{children}</p>;
 
       const layoutName = 'コンパクト';
 
