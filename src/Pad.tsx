@@ -37,7 +37,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       })
       .then((svg: string) => {
           console.log('svg!');
-          return (svg);
+          return (<div>{svg}</div>);
       })
       .catch((error: Error) => {
           console.log('error');
