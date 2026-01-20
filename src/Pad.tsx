@@ -5,8 +5,8 @@ import './Pad.css';
 const API_URL: string = 'http://10.20.40.64:8070/api/pdl/form'
 
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
-  const [svgContent, setSvgContent] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  // const [svgContent, setSvgContent] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
 
   return ({ children, className, ...props }) => {
     try {
@@ -35,8 +35,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       })
       .then(svg => {
           console.log('svg!');
-          // console.log(svg);
-          setSvgContent(svg);
+          console.log(svg);
           return svg;
       })
       .catch((error: Error) => {
