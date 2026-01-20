@@ -24,7 +24,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       const { react } = growiFacade;
       const { useEffect, useState } = react;
 
-      const [ svgContent, setSvgContent ] = useState<string | null>(null);
+      const [ svgContent, setSvgContent ] = useState<string | TrustedHTML>('');
 
       const layoutName = 'コンパクト';
 
@@ -44,7 +44,10 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
         if (children !== null) getSvg(children)
       }, [children]);
 
-      return (<>{svgContent}</>);
+      return (
+        <div dangerouslySetInnerHTML={{ __html: svgContent }}
+        />
+      );
 
     }
     catch (err) {

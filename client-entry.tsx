@@ -26,8 +26,7 @@ const activate = (): void => {
   optionsGenerators.customGenerateViewOptions = (...args) => {
     const options = originalCustomViewOptions ? originalCustomViewOptions(...args) : optionsGenerators.generateViewOptions(...args);
     const { code } = options.components;
-    // options.components.code = Pad(code);
-    options.components.ref = Pad(code);
+    options.components.code = Pad(code);
     return options;
   };
 
@@ -36,8 +35,7 @@ const activate = (): void => {
   optionsGenerators.customGeneratePreviewOptions = (...args) => {
     const options = originalGeneratePreviewOptions ? originalGeneratePreviewOptions(...args) : optionsGenerators.generatePreviewOptions(...args);
     const { code } = options.components;
-    // options.components.code = Pad(code);
-    options.components.ref = Pad(code);
+    options.components.code = Pad(code);
     return options;
   };
 };
