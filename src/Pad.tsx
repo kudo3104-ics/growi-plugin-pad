@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+// import React, { useEffect, useState } from 'react';
 
 import './Pad.css';
 
 const API_URL: string = 'http://10.20.40.64:8070/api/pdl/form'
 
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
-  const [svgContent, setSvgContent] = useState<string | null>(null);
+  // const [svgContent, setSvgContent] = useState<string | null>(null);
   // const [error, setError] = useState<string | null>(null);
 
   return ({ children, className, ...props }) => {
@@ -15,6 +16,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
           <Tag {...props}>{children}</Tag>
         );
       }
+      return (<div>hoge {children} hoge</div>);
 
       const layoutName = 'コンパクト';
 
@@ -35,15 +37,13 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       })
       .then((svg: string) => {
           console.log('svg!');
-          setSvgContent(svg);
-          // return svg;
+          return svg;
       })
       .catch((error: Error) => {
           console.log('error');
           console.log(error);
           return 'error: ' + error;
       });
-      return (svgContent);
     }
     catch (err) {
       console.log('error2');
