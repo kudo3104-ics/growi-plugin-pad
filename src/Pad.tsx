@@ -53,7 +53,7 @@ export const Pad = (Tag: React.FC<any>): React.FC<any> => {
       return <div>svg fetch now...</div>;
     }
   
-    return 'this is svgContent';
+    return (<div>this is svg?</div>);
     // return svgContent;
   };
 };
