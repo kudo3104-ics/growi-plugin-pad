@@ -16,7 +16,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
           <Tag {...props}>{children}</Tag>
         );
       }
-      return (<div>hoge {children} hoge</div>);
+      // return (<div>hoge {children} hoge</div>);
 
       const layoutName = 'コンパクト';
 
@@ -37,7 +37,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
       })
       .then((svg: string) => {
           console.log('svg!');
-          return svg;
+          return (svg);
       })
       .catch((error: Error) => {
           console.log('error');
