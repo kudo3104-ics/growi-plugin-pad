@@ -8,6 +8,20 @@ declare const growiFacade : {
 
 const API_URL: string = 'http://10.20.40.64:8070/api/pdl/form'
 
+export function GetLayoutName(pdl: string): string {
+  const lines = pdl.split(/\r?\n/);
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('//')) {
+      const match = trimmed.match(/^\/\/.*@layout=([^\s]+)/);
+      if (match) {
+        return match[1];
+      }
+    }
+  }
+  return "標準";
+};
+
 export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<any> => {
   return ({ children, className, ...props }) => {
     try {
@@ -22,7 +36,7 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
 
       const [ svgContent, setSvgContent ] = useState<string | TrustedHTML>('');
 
-      const layoutName = 'コンパクト';
+      const layoutName = GetLayoutName(children);
 
       const getSvg = async(pdl: string) => {
         const response = await fetch(API_URL, {
