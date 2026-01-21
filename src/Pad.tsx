@@ -60,8 +60,9 @@ export const Pad = (Tag: React.FunctionComponent<any>): React.FunctionComponent<
 
     }
     catch (err) {
+      console.log(err);
       return (
-        <Tag {...props}>{children} err</Tag>
+        <Tag {...props}>{children} err:{err}</Tag>
       );
     }
   };
